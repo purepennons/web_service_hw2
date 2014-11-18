@@ -1,3 +1,5 @@
 /node_modules
 
 /rest_service/node_modules
+
+/website/node_modules

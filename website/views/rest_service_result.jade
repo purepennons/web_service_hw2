@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div(class='header')
+		h1=title
+	div(class='content')
+		table(class='table')
+			tr
+				th Id
+				th title
+				th isbn
+				th author
+				th abstract
+			tr
+				td #{Id}
+				td #{title}
+				td #{isbn}
+				td #{author}
+				td #{abstract}
+	div(class='footer')
+
+
