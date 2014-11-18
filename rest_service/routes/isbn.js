@@ -18,12 +18,8 @@ connection.connect(function(err) {
     console.error('error connecting: ' + err.stack);
     return;
   }
-
   console.log('connected as id ' + connection.threadId);
-
 });  
-
-
 
 /* GET users listing. */
 router.get('/:isbn', function(req, res) {
@@ -38,8 +34,12 @@ router.get('/:isbn', function(req, res) {
 	}
 
   connection.query(sql, function(err, rows) {
-		// connected! (unless `err` is set)
-		console.log(rows);
+  	if(err){
+			res.status(400);
+			res.end(JSON.stringify({"status": "error"}));  		
+  	}
+		res.status(200);
+		res.write(JSON.stringify(rows));
 		res.end();
 	});
 });
