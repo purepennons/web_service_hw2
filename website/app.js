@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var restService_index = require('./routes/rest_service');
 var restService_result = require('./routes/rest_service_result');
+var soapService_result = require('./routes/soap_service_result');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/restService', restService_index);
 app.use('/restService/result', restService_result);
+app.use('/soapService/result', soapService_result);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

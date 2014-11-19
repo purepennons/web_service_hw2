@@ -1,3 +1,5 @@
 {
-	"rest_host": "localhost:3000"
+	"rest_host": "localhost:3000",
+	"soap_host": "localhost:8080",
+	"service_path": "/SOAP_Service/services/QueryByISBN"
 }
