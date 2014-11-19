@@ -14,7 +14,7 @@ router.get('/:isbn', function(req, res) {
 		res.end();		
 	}else {
 
-	  var url = 'http://' + config.soap_host + config.service_path + '?wsdl';
+	  var url = 'http://' + config.soap_host + config.soap_service_path + '?wsdl';
 	  var args = {
 	  	isbn: isbn
 	  };

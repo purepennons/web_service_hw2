@@ -13,7 +13,7 @@ router.get('/:isbn', function(req, res) {
 		res.end();		
 	}else {
 
-		http.get('http://' + config.rest_host + '/book/' + isbn, function(response) {
+		http.get('http://' + config.rest_host + config.rest_service_path + '/' + isbn, function(response) {
 			var recData = '';
 			response.setEncoding('utf8');
 		  if(response.statusCode === 200){
