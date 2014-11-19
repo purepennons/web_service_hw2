@@ -17,6 +17,7 @@ public class DB_Conf {
 	private String username = "root";
 	private String password = "abc123";
 	private String encoding = "utf-8";
+	private String table = "book";
 	private boolean isUnicode = true;
 	
 	//constructor
@@ -40,6 +41,7 @@ public class DB_Conf {
 		this.useDB = properties.getProperty("useDB");
 		this.username = properties.getProperty("username");
 		this.password = properties.getProperty("password");
+		this.table = properties.getProperty("table");
 
 		
 	}
@@ -155,6 +157,19 @@ public class DB_Conf {
 	public String getEncoding(){
 		if(this.encoding != ""){
 			return this.encoding;
+		}
+		return "";
+	}
+	
+	public void setTable(String tb){
+		if(tb != ""){
+			this.table = tb;
+		}
+	}
+	
+	public String getTable(){
+		if(this.table != ""){
+			return this.table;
 		}
 		return "";
 	}

@@ -3,6 +3,7 @@ package SOAPService;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import JDBC_DB.DB_Conf;
 import JDBC_DB.DB_Connect;
 
 public class QueryByISBN {
@@ -10,8 +11,10 @@ public class QueryByISBN {
 		if(isbn.length() != 13) {
 			return "{'status': 'error', 'result': 'wrong args'}";
 		}else {
+			DB_Conf dBconf = new DB_Conf();
 			DB_Connect db = new DB_Connect();
-			String sql = "SELECT * FROM book WHERE isbn = " + isbn;
+			String sql = "SELECT * FROM " + dBconf.getTable() + " WHERE isbn = " + isbn;
+			System.out.println(sql);
 			String resultJSON = null;
 			String returnJSON = null;
 			db.init();
