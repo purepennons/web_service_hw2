@@ -1,5 +1,11 @@
 package JDBC_DB;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class DB_Conf {
 	
 	//parameters setup
@@ -15,7 +21,27 @@ public class DB_Conf {
 	
 	//constructor
 	public DB_Conf(){
-		//do nothing
+		Properties properties = new Properties();
+		String configFile = "config.properties";
+		try {
+			InputStream in = getClass().getResourceAsStream(configFile);
+		    properties.load(in);
+		    in.close();
+		} catch (FileNotFoundException ex) {
+		    ex.printStackTrace();
+		    return;
+		} catch (IOException ex) {
+		    ex.printStackTrace();
+		    return;
+		}
+		 
+		this.domain = properties.getProperty("domain", "jdbc:mysql://localhost/default");
+		this.port = properties.getProperty("port");
+		this.useDB = properties.getProperty("useDB");
+		this.username = properties.getProperty("username");
+		this.password = properties.getProperty("password");
+
+		
 	}
 	
 	public DB_Conf(String driver, String type, String d, String port, String dbName, String usr, String pw){
