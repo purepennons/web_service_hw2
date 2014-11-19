@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var restService_index = require('./routes/rest_service');
+var soapService_index = require('./routes/soap_service');
 var restService_result = require('./routes/rest_service_result');
 var soapService_result = require('./routes/soap_service_result');
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/restService', restService_index);
+app.use('/soapService', soapService_index);
 app.use('/restService/result', restService_result);
 app.use('/soapService/result', soapService_result);
 

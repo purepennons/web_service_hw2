@@ -10,7 +10,7 @@ function isbnSubmitbyRest() {
 function isbnSubmitbySOAP() {
 	var isbn = $('#inputISBN').val();
 	if(isbn.length == 13){
-		var redirectURL = 'http://' + location.host + '/restService/result/' + isbn;
+		var redirectURL = 'http://' + location.host + '/soapService/result/' + isbn;
 		window.location.href = redirectURL;
 	}
 }

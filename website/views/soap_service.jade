@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div(class='header')
+		h1=title
+	div(class='content')
+		div(class='col-lg-2')
+			input(id='inputISBN', name='inputext', type='text', class='form-control', placeholder="ISBN")
+		button(id='submit', type='button', onclick='isbnSubmitbySOAP()', class='btn btn-success') Submit
+		
+	div(class='footer')
+
+
+	script(type='text/javascript', src='/javascripts/function.js')
+

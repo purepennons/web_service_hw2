@@ -27,7 +27,7 @@ router.get('/:isbn', function(req, res) {
 			  response.on('end', function(){
 			  	var recDataJSON = JSON.parse(recData);
 			  	if(recDataJSON.status === 'success'){
-	  				res.render('rest_service_result', recDataJSON.result[0]);
+	  				res.render('service_result', recDataJSON.result[0]);
 	  			}else {
 					res.status(400);	  				
 	  				res.send('Fail to query!');
