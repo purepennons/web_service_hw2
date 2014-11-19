@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var route_index = require('./routes/index');
 var restService_index = require('./routes/rest_service');
 var soapService_index = require('./routes/soap_service');
 var restService_result = require('./routes/rest_service_result');
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', route_index);
 app.use('/restService', restService_index);
 app.use('/soapService', soapService_index);
 app.use('/restService/result', restService_result);
