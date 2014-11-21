@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 public class DB_Conf {
@@ -25,9 +26,16 @@ public class DB_Conf {
 		Properties properties = new Properties();
 		String configFile = "config.properties";
 		try {
-			InputStream in = getClass().getResourceAsStream(configFile);
-		    properties.load(in);
+			InputStream in = this.getClass().getResourceAsStream("/" + configFile);
+			InputStreamReader isrProperties = new InputStreamReader(in);
+		    properties.load(isrProperties);
 		    in.close();
+			this.domain = properties.getProperty("domain", "jdbc:mysql://localhost/default");
+			this.port = properties.getProperty("port");
+			this.useDB = properties.getProperty("useDB");
+			this.username = properties.getProperty("username");
+			this.password = properties.getProperty("password");
+			this.table = properties.getProperty("table");		    
 		} catch (FileNotFoundException ex) {
 		    ex.printStackTrace();
 		    return;
@@ -35,14 +43,6 @@ public class DB_Conf {
 		    ex.printStackTrace();
 		    return;
 		}
-		 
-		this.domain = properties.getProperty("domain", "jdbc:mysql://localhost/default");
-		this.port = properties.getProperty("port");
-		this.useDB = properties.getProperty("useDB");
-		this.username = properties.getProperty("username");
-		this.password = properties.getProperty("password");
-		this.table = properties.getProperty("table");
-
 		
 	}
 	
